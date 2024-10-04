@@ -1,55 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visa Payment</title>
+    <title>Оплата</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Payment Details</h1>
-            <p>Please complete your payment and upload the payment receipt.</p>
+            <h1>Оплата за визу</h1>
         </header>
 
         <div class="section">
-            <h2>Bank Details for Payment</h2>
-            <p>Transfer the total amount to the following account:</p>
+            <h2>Реквизиты для оплаты</h2>
             <ul>
-                <li><strong>Name:</strong> Зоя Келли Лонгстафф</li>
-                <li><strong>Card Number:</strong> 2200 2402 0643 3530</li>
-                <li><strong>Bank:</strong> ВТБ</li>
-                <li><strong>Phone:</strong> +7 981 859 6736</li>
+                <li>Имя: Зоя Келли Лонгстафф</li>
+                <li>Номер карты: 2200240206433530</li>
+                <li>Банк: ВТБ</li>
+                <li>Телефон: +7 981 859 6736</li>
             </ul>
-            <p>Reference your application ID when making the payment.</p>
+
+            <form id="paymentForm">
+                <div class="section">
+                    <label for="receipt">Загрузите квитанцию об оплате:</label>
+                    <input type="file" id="receipt" name="receipt" required>
+                </div>
+                <button type="submit">Загрузить и завершить</button>
+            </form>            
         </div>
-
-        <div class="section">
-            <h2>Total Amount Due</h2>
-            <p id="totalAmountDue">Total Amount: $0.00</p>
-        </div>
-
-        <form id="paymentForm" action="upload.php" method="POST" enctype="multipart/form-data">
-            <div class="section">
-                <label for="receipt">Upload Payment Receipt</label>
-                <input type="file" id="receipt" name="receipt" accept="image/*,application/pdf" required>
-            </div>
-
-            <button type="submit" id="submitReceipt">Done</button>
-        </form>
     </div>
-    <body>
-        <!-- Page content here -->
-    
-        <!-- Footer with Romostravel Agency Details -->
-        <footer>
-            <p>&copy; 2024 Romostravel Agency | Все права защищены</p>
-            <p>For inquiries, contact: <a href="tel:+79818596736">+7 981 859 6736</a> or email: <a href="mailto:info@romostravel.com">info@romostravel.com</a></p>
-            <p>Visit us: 505 Westcott St, Houston, TX 77007</p>
-        </footer>
-    </body>
-    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- Footer with Romostravel Agency Details -->
+    <footer>
+        <p>&copy; 2024 Romostravel Agency | Все права защищены</p>
+        <p>Для запросов, свяжитесь: <a href="tel:+79818596736">+7 981 859 6736</a> или email: <a href="mailto:romostravels@hotmail.com">romostravels@hotmail.com</a></p>
+        <p>Посетите нас: Sinanpaşa, Hakan Zini, Alaybeyi Sk işhanı No:4, 34353 Beşiktaş/İstanbul, Türkiye</p>
+    </footer>
     <script src="payment.js"></script>
 </body>
 </html>
