@@ -45,14 +45,3 @@ document.getElementById('visaForm').addEventListener('submit', function(event) {
     window.location.href = 'payment.html';
 });
 
-document.getElementById("visaForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    // Here you can add form validation logic (if needed)
-
-    // Simulate successful form submission
-    alert("Ваша заявка на визу была отправлена! Перенаправляем на страницу подтверждения...");
-
-    // Redirect to congratulations.html page
-    window.location.href = "congratulations.html";
-});
