@@ -38,10 +38,22 @@ function calculateTotal() {
     // Store total amount in local storage for payment page
     localStorage.setItem('totalAmount', totalAmount.toFixed(2));
 }
-
 // On form submission, redirect to payment.html
 document.getElementById('visaForm').addEventListener('submit', function(event) {
     event.preventDefault();
     window.location.href = 'payment.html';
+});
+
+// Event listener for the payment form submission
+document.getElementById("paymentForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Here you can add actual upload logic if needed
+
+    // Simulate successful upload
+    alert("Квитанция успешно загружена! Перенаправляем на страницу подтверждения...");
+
+    // Redirect to congratulations.html page
+    window.location.href = "congratulations.html";
 });
 
