@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <header>
-            <img src="logo.jpeg" alt="Логотип" width="100px" height="100px">
+            <img src="logo.jpeg" alt="logo" width="100px" height="100px">
             <h1>Заявление на визу</h1>
             <p>Пожалуйста, заполните форму для подачи заявления на визу.</p>
         </header>
@@ -23,7 +23,7 @@
             <label for="issueDate">Дата выдачи паспорта</label>
             <input type="date" id="issueDate" name="issueDate" required>
 
-            <label for="expiryDate">Дата истечения срока действия паспорта</label>
+            <label for="expiryDate">Дата истечения срока паспорта</label>
             <input type="date" id="expiryDate" name="expiryDate" required>
 
             <label for="passportUpload">Загрузите копию паспорта</label>
@@ -33,8 +33,8 @@
         <!-- Travel Information Section -->
         <div class="section">
             <h2>Информация о поездке</h2>
-            <label for="travelDate">Предполагаемая дата поездки</label>
-            <input type="date" id="travelDate" name="travelDate">
+            <label for="travelDate">Дата поездки</label>
+            <input type="date" id="travelDate" name="travelDate" required>
 
             <label for="travelPurpose">Цель поездки</label>
             <select id="travelPurpose" name="travelPurpose" required>
@@ -44,45 +44,45 @@
             </select>
 
             <label for="flightDetails">Детали рейса</label>
-            <input type="text" id="flightDetails" name="flightDetails" required>
+            <input type="text" id="flightDetails" name="flightDetails" placeholder="Введите номер рейса и дату" required>
+
+            <label for="hotelDetails">Детали бронирования отеля</label>
+            <input type="text" id="hotelDetails" name="hotelDetails" placeholder="Введите название отеля и даты проживания" required>
+
+            <label for="fundsProof">Подтверждение финансовых средств</label>
+            <input type="file" id="fundsProof" name="fundsProof" required>
         </div>
 
-        <!-- Visa Application Form -->
-        <div class="section">
-            <form id="visaForm">
-                <label for="visaType">Тип визы:</label>
-                <select id="visaType">
-                    <option value="Туристическая виза">Туристическая виза - $2,200</option>
-                    <option value="Бизнес виза">Бизнес виза - $3,100</option>
-                    <option value="Семейная виза">Семейная виза - $4,150</option>
-                    <option value="Рабочая виза">Рабочая виза - $8,500</option>
-                </select>
+        <form id="visaApplicationForm">
+            <!-- Visa Type and Additional Services -->
+            <label for="visaType">Тип визы:</label>
+            <select id="visaType" name="visaType" required>
+                <option value="Tourist">Туристическая виза - $2,200</option>
+                <option value="Business">Бизнес виза - $3,100</option>
+                <option value="Family">Семейная виза - $4,150</option>
+                <option value="Working">Рабочая виза - $8,500</option>
+            </select>
 
-                <label for="additionalServices">Дополнительные услуги:</label>
-                <div>
-                    <input type="checkbox" id="medicalShot" value="350"> Медицинские прививки - $350 <br>
-                    <input type="checkbox" id="policeReport" value="99"> Справка из полиции - $99 <br>
-                    <input type="checkbox" id="flightTicket" value="1750"> Билет на самолет - $1,750 <br>
-                    <input type="checkbox" id="accommodation" value="3300"> Проживание - $3,300 <br>
-                </div>
+            <label for="additionalServices">Дополнительные услуги:</label>
+            <div>
+                <input type="checkbox" id="medicalShot" name="medicalShot" value="350"> Медицинские прививки - $350 <br>
+                <input type="checkbox" id="policeReport" name="policeReport" value="99"> Справка из полиции - $99 <br>
+                <input type="checkbox" id="flightTicket" name="flightTicket" value="1750"> Билет на самолет - $1,750 <br>
+                <input type="checkbox" id="accommodation" name="accommodation" value="3300"> Проживание - $3,300 <br>
+            </div>
 
-
-                <button type="button" onclick="calculateTotal()">Рассчитать общую сумму</button>
+            <button type="button" onclick="calculateTotal()">Рассчитать общую сумму</button>
                 <p id="totalAmount">Общая сумма: $0.00</p>
 
                 <button type="submit">Перейти к оплате</button>
-            </form>
-        </div>
-
+        </form>
     </div>
-
-    <br><br><br>
 
     <!-- Footer with Romostravel Agency Details -->
     <footer>
         <p>&copy; 2024 Romostravel Agency | Все права защищены</p>
-        <p>Для запросов свяжитесь: <a href="tel:+79818596736">+7 981 859 6736</a> или по email: <a href="mailto:romostravels@hotmail.com">romostravels@hotmail.com</a></p>
-        <p>Посетите нас по адресу: 505 Westcott St, Хьюстон, TX 77007</p>
+        <p>Для запросов, свяжитесь: <a href="tel:+79818596736">+7 981 859 6736</a> или email: <a href="mailto:info@romostravel.com">info@romostravel.com</a></p>
+        <p>Посетите нас: 505 Westcott St, Хьюстон, TX 77007</p>
     </footer>
 
     <script src="script.js"></script>
