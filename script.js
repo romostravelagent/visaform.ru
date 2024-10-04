@@ -1,59 +1,66 @@
+document.getElementById("visaApplicationForm").addEventListener("submit", function(event) {
+    // Perform custom validation
+    var fullName = document.getElementById("fullName").value;
+    var dob = document.getElementById("dob").value;
+    var passportNumber = document.getElementById("passportNumber").value;
+    var travelDate = document.getElementById("travelDate").value;
+
+    if (fullName === "" || dob === "" || passportNumber === "" || travelDate === "") {
+        alert("Please fill out all required fields.");
+        event.preventDefault();
+    } else {
+        alert("Your visa application has been submitted!");
+    }
+});
+
+// Event listener for all checkbox and select inputs
+document.querySelectorAll('input[type=checkbox], select').forEach(item => {
+    item.addEventListener('change', calculateTotal);
+});
+
+// Calculate Total Amount based on selections
 function calculateTotal() {
-    let visaType = document.getElementById('visaType').value;
-    let totalAmount = 0;
+    const visaPrices = {
+        "Tourist": 2200,
+        "Business": 3100,
+        "Family": 4150,
+        "Working": 850
+    };
 
-    // Visa Type Calculation
-    switch (visaType) {
-        case 'Туристическая виза':
-            totalAmount += 2200;
-            break;
-        case 'Бизнес виза':
-            totalAmount += 3100;
-            break;
-        case 'Семейная виза':
-            totalAmount += 4150;
-            break;
-        case 'Рабочая виза':
-            totalAmount += 8500;
-            break;
-    }
+    const servicesPrices = {
+        "medicalShot": 350,
+        "policeReport": 99,
+        "flightTicket": 1750,
+        "accommodationFees": 3300
+    };
 
-    // Additional Services Calculation
-    if (document.getElementById('medicalShot').checked) {
-        totalAmount += 350;
-    }
-    if (document.getElementById('policeReport').checked) {
-        totalAmount += 99;
-    }
-    if (document.getElementById('flightTicket').checked) {
-        totalAmount += 1750;
-    }
-    if (document.getElementById('accommodation').checked) {
-        totalAmount += 3300;
-    }
+    let visaType = document.getElementById("visaType").value;
+    let total = visaPrices[visaType] || 0;
 
-    // Update total amount displayed
-    document.getElementById('totalAmount').textContent = `Общая сумма: $${totalAmount.toFixed(2)}`;
-    
-    // Store total amount in local storage for payment page
-    localStorage.setItem('totalAmount', totalAmount.toFixed(2));
+    if (document.getElementById("medicalShot").checked) total += servicesPrices.medicalShot;
+    if (document.getElementById("policeReport").checked) total += servicesPrices.policeReport;
+    if (document.getElementById("flightTicket").checked) total += servicesPrices.flightTicket;
+    if (document.getElementById("accommodationFees").checked) total += servicesPrices.accommodationFees;
+
+    localStorage.setItem('totalAmount', total.toFixed(2));
+    document.getElementById("totalAmount").textContent = "Total Amount: $" + total.toFixed(2);
 }
-// On form submission, redirect to payment.html
-document.getElementById('visaForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    window.location.href = 'payment.html';
+
+// Event listeners for form elements
+document.querySelectorAll('input[type=checkbox], select').forEach(item => {
+    item.addEventListener('change', calculateTotal);
 });
 
-// Event listener for the payment form submission
-document.getElementById("paymentForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the default form submission
+// Update the total on page load
+window.onload = calculateTotal;
 
-    // Here you can add actual upload logic if needed
 
-    // Simulate successful upload
-    alert("Квитанция успешно загружена! Перенаправляем на страницу подтверждения...");
+// Prevent default form submission and redirect to payment page
+document.getElementById("visaApplicationForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form from submitting in the traditional way
 
-    // Redirect to congratulations.html page
-    window.location.href = "congratulations.html";
+    // You can add form validation here
+
+    // Redirect to payment page
+    window.location.href = "payment.html";
 });
-
