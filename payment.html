@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Оплата за визу</h1>
+        </header>
+
+        <div class="section">
+            <h2>Реквизиты для оплаты</h2>
+            <ul>
+                <li>Имя: Зоя Келли Лонгстафф</li>
+                <li>Номер карты: 2200240206433530</li>
+                <li>Банк: ВТБ</li>
+                <li>Телефон: +7 981 859 6736</li>
+            </ul>
+
+            <form id="paymentForm">
+                <div class="section">
+                    <label for="receipt">Загрузите квитанцию об оплате:</label>
+                    <input type="file" id="receipt" name="receipt" required>
+                </div>
+                <button type="submit">Загрузить и завершить</button>
+            </form>            
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <!-- Footer with Romostravel Agency Details -->
+    <footer>
+        <p>&copy; 2024 Romostravel Agency | Все права защищены</p>
+        <p>Для запросов, свяжитесь: <a href="tel:+79818596736">+7 981 859 6736</a> или email: <a href="mailto:romostravels@hotmail.com">romostravels@hotmail.com</a></p>
+        <p>Посетите нас: 505 Westcott St, Хьюстон, TX 77007</p>
+    </footer>
+
+    <script>
+        // Event listener for the payment form submission
+        document.getElementById("paymentForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Here you can add actual upload logic if needed
+
+            // Simulate successful upload
+            alert("Квитанция успешно загружена! Перенаправляем на страницу подтверждения...");
+
+            // Redirect to congratulations.html page
+            window.location.href = "congratulations.html";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявление на визу</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="logo.jpeg" alt="Логотип" width="100px" height="100px">
+            <h1>Заявление на визу</h1>
+            <p>Пожалуйста, заполните форму для подачи заявления на визу.</p>
+        </header>
+
+        <!-- Passport Information Section -->
+        <div class="section">
+            <h2>Информация о паспорте</h2>
+            <label for="passportNumber">Номер паспорта</label>
+            <input type="text" id="passportNumber" name="passportNumber" required>
+
+            <label for="issueDate">Дата выдачи паспорта</label>
+            <input type="date" id="issueDate" name="issueDate" required>
+
+            <label for="expiryDate">Дата истечения срока действия паспорта</label>
+            <input type="date" id="expiryDate" name="expiryDate" required>
+
+            <label for="passportUpload">Загрузите копию паспорта</label>
+            <input type="file" id="passportUpload" name="passportUpload" accept="image/*,application/pdf" required>
+        </div>
+
+        <!-- Travel Information Section -->
+        <div class="section">
+            <h2>Информация о поездке</h2>
+            <label for="travelDate">Предполагаемая дата поездки</label>
+            <input type="date" id="travelDate" name="travelDate">
+
+            <label for="travelPurpose">Цель поездки</label>
+            <select id="travelPurpose" name="travelPurpose" required>
+                <option value="Tourism">Туризм</option>
+                <option value="Business">Бизнес</option>
+                <option value="Family Visit">Семейный визит</option>
+            </select>
+
+            <label for="flightDetails">Детали рейса</label>
+            <input type="text" id="flightDetails" name="flightDetails" required>
+        </div>
+
+        <!-- Visa Application Form -->
+        <div class="section">
+            <form id="visaForm">
+                <label for="visaType">Тип визы:</label>
+                <select id="visaType">
+                    <option value="Туристическая виза">Туристическая виза - $2,200</option>
+                    <option value="Бизнес виза">Бизнес виза - $3,100</option>
+                    <option value="Семейная виза">Семейная виза - $4,150</option>
+                    <option value="Рабочая виза">Рабочая виза - $8,500</option>
+                </select>
+
+                <label for="additionalServices">Дополнительные услуги:</label>
+                <div>
+                    <input type="checkbox" id="medicalShot" value="350"> Медицинские прививки - $350 <br>
+                    <input type="checkbox" id="policeReport" value="99"> Справка из полиции - $99 <br>
+                    <input type="checkbox" id="flightTicket" value="1750"> Билет на самолет - $1,750 <br>
+                    <input type="checkbox" id="accommodation" value="3300"> Проживание - $3,300 <br>
+                </div>
+
+
+                <button type="button" onclick="calculateTotal()">Рассчитать общую сумму</button>
+                <p id="totalAmount">Общая сумма: $0.00</p>
+
+                <button type="submit">Перейти к оплате</button>
+            </form>
+        </div>
+
+    </div>
+
+    <br><br><br>
+
+    <!-- Footer with Romostravel Agency Details -->
+    <footer>
+        <p>&copy; 2024 Romostravel Agency | Все права защищены</p>
+        <p>Для запросов свяжитесь: <a href="tel:+79818596736">+7 981 859 6736</a> или по email: <a href="mailto:romostravels@hotmail.com">romostravels@hotmail.com</a></p>
+        <p>Посетите нас по адресу: 505 Westcott St, Хьюстон, TX 77007</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
